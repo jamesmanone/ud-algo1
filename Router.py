@@ -32,8 +32,7 @@ class Router:
         self.__trie = RouteTrie()
 
     def add_handler(self, path, handler):
-        node = self.__trie.lookup(path, force=True)
-        node.handler = handler
+        self.__trie.insert(path, handler)
 
     def __not_found(self, path):
         node = self.__trie.lookup('404')

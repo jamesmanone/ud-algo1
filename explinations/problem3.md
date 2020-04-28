@@ -1,0 +1,3 @@
+# Problem 3: Rearrange Array Digits
+
+To arrange a series of digits into 2 integers of maximum value we needn't try all combinations - we just need to make sure the highest digits go to the highest orders of magnitude. Thus we can make these numbers by alternating between the two numbers and adding the highest digit remaining in the array ( ƒ(x, y) = (x * 10) + y  where x is the previous total and y is the digit being added). To get the largest remaining in the array we use a max heap. `build_max_heap` is O(n), but the overall algorithm is O(n log(n)) because of the repeated calls to `heapify`. Space is O(1) as we work with the array in place.

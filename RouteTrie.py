@@ -4,6 +4,7 @@ class RouteTrie:
             self.__handler = None
             self.__children = {}
 
+        # Bool. Used to check if this node has a handler
         @property
         def handler(self):
             return self.__handler is not None
@@ -12,6 +13,7 @@ class RouteTrie:
         def handler(self, func):
             self.__handler = func
 
+        # calls the handler func if it has one. Raises KeyError if None
         def get(self, *args, **kwargs):
             if not self.handler:
                 raise KeyError("handler not found")
@@ -28,7 +30,7 @@ class RouteTrie:
                 self.__children[key] = RouteTrie.Node()
             return self.__children[key]
 
-        # void operator[](func)
+        # void operator[](func) sets the handler on the node
         def __setitem__(self, key, handler):
             if key not in self:
                 self.__children[key] = RouteTrie.Node()
@@ -40,6 +42,10 @@ class RouteTrie:
     # end RouteTrie.Node
     def __init__(self):
         self.__root = RouteTrie.Node()
+
+    def insert(self, path, handler):
+        node = self.lookup(path, force=True)
+        node.handler = handler
 
     def lookup(self, path, force=False):
         root = self.__root
