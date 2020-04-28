@@ -3,30 +3,30 @@
 
 # O(log(n))
 def find_min(arr):
-    s = 0
-    e = len(arr) - 1
-    while e > s:
-        c = ((e - s) // 2) + s
-        if arr[s] > arr[c]:
-            e = c
-        elif arr[e] < arr[c]:
-            s = c + 1
+    start = 0
+    end = len(arr) - 1
+    while end > start:
+        center = ((end - start) // 2) + start
+        if arr[start] > arr[center]:
+            end = center
+        elif arr[end] < arr[center]:
+            start = center + 1
         else:
-            return s
-    return s
+            return start
+    return start
 
 
 def binary_search(arr, t):
-    s = 0
-    e = len(arr)
-    while s < e:
-        c = ((e - s) // 2) + s
-        if arr[c] < t:
-            s = c + 1
-        elif arr[c] > t:
-            e = c
+    start = 0
+    end = len(arr)
+    while start < end:
+        center = ((end - start) // 2) + start
+        if arr[center] < t:
+            start = center + 1
+        elif arr[center] > t:
+            end = center
         else:
-            return c
+            return center
     return -1
 
 
