@@ -5,4 +5,6 @@ When an array had only 3 discrete values sorting them on a single traversal is r
 2. Traverse the middle section, swapping 0's and 2's with your start and end indices respectively.
 3. When your search index exceeds your middle->end index you have traversed each item once and sorted the array
 
+O(n) time, O(1) space
+
 This could be done by moving values to 3 different arrays and returning `zeros + ones + twos` but this would cause a copy which could be viewed as a second traversal.

@@ -2,4 +2,6 @@
 
 Also uses `Trie.py`
 
-I'm not user what to say about this one. Please see `Trie.py`. It's commented.
+Inserting words is O(n) time and space(worst case). If the trie has a prefix as a word those nodes will be reused. 
+
+Suffixes and find is O(n) time and O(1) space complexity.
